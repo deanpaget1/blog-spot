@@ -1,0 +1,91 @@
+<%- include("partials/header.ejs") %>
+  </div>
+
+  <% if (locals.webState) { %>
+
+    <% if (webState===2) { %>
+
+      <div class="px-4 py-5 my-5 text-center">
+        <img class="d-block mx-auto mb-4" src="/images/dog.gif" alt="" width="700">
+        <h1 class="display-5 fw-bold text-body-emphasis">Welcome to your blog!!</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Read through your past blog posts or create a new one below.</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <form action="/prepare" method="POST">
+              <input type="submit" value="Create Blog!" class="btn btn-primary btn-lg px-4 gap-3">
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <% if (locals.bTitle && locals.bText) { %>
+        <% for( let i=bAmount-1; i>= 0; i-- ) { %>
+          <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="/images/freelance-writing-gigs.gif" alt="" width="500">
+            <h2 class="display-5 fw-bold text-body-emphasis">
+              <%=bTitle[i]%>
+            </h2>
+            <div class="col-lg-6 mx-auto">
+              <p class="lead mb-4">
+                <%=bText[i]%>
+              </p>
+            </div>
+            <p>Posted on <%= bTime[i] %>
+            </p>
+          </div>
+          <% } %>
+            <% }%>
+
+      <% } else { %>
+
+        <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog"
+          id="modalSignin">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content rounded-4 shadow">
+              <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">What you thinkin'?</h1>
+                <a href="/" class="btn-close"></a>
+              </div>
+
+              <div class="modal-body p-5 pt-0">
+                <form class="" action="/posted" method="POST">
+                  <div class="form-floating mb-3">
+                    <input type="text" name="blogTitle" class="form-control rounded-3" id="floatingInput"
+                      placeholder="Enter your Blog Title">
+                    <label for="floatingInput">Blog Title</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <textarea type="text" name="blogText" class="form-control rounded-3" id="floatingPassword"
+                      placeholder="Type your blog here" style="height: 200px;"></textarea>
+                    <label for="floatingPassword">Type your blog here</label>
+                  </div>
+                  <input type="submit" value="POST!" class="w-100 mb-2 btn btn-lg rounded-3 btn-primary">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <% } %>
+
+
+
+          <% } else { %>
+
+            <div class="px-4 py-5 my-5 text-center">
+              <img class="d-block mx-auto mb-4" src="/images/dog.gif" alt="" width="700">
+              <h1 class="display-5 fw-bold text-body-emphasis">Welcome to your blog!!</h1>
+              <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Read through your past blog posts or create a new one below.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                  <form action="/prepare" method="POST">
+                    <input type="submit" value="Create Blog!" class="btn btn-primary btn-lg px-4 gap-3">
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <% } %>
+
+
+                      <%- include("partials/footer.ejs") %>

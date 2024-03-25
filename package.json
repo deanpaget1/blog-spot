@@ -1,0 +1,18 @@
+{
+  "name": "blog-spot",
+  "version": "1.0.0",
+  "description": "Website to write blog posts",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dean Paget",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.3",
+    "ejs": "^3.1.9",
+    "express": "^4.19.1"
+  }
+}
